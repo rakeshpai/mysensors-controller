@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "sensors": [
+      {
+        "id": 0,
+        "type": 23,
+        "value": 49,
+        "updateTime": 1456509303277
+      }
+    ],
+    "protocol": "1.5.4",
+    "sketchName": "Light Sensor",
+    "sketchVersion": "1.0"
+  }
+]
