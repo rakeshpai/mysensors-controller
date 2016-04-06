@@ -1,11 +1,14 @@
 {
   "name": "mysensors-controller",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "A partial implementation of the MySensors protocol",
   "main": "index.js",
   "homepage": "https://github.com/rakeshpai/mysensors-controller",
   "bugs": "https://github.com/rakeshpai/mysensors-controller/issues",
-  "keywords": ["mysensors", "iot"],
+  "keywords": [
+    "mysensors",
+    "iot"
+  ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
