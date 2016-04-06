@@ -2,7 +2,7 @@ mysensors-controller
 ===
 
 A partial implementation of the [MySensors](http://www.mysensors.org/) serial protocol as a node.js module.
-Built against [version 1.5 of the MySensors Serial API](http://www.mysensors.org/download/serial_api_15), and supports both Serial (tested) and Ethernet (untested) gateways.
+Built against [version 1.5 of the MySensors Serial API](http://www.mysensors.org/download/serial_api_15), and supports both Serial and Ethernet gateways.
 
 Installation
 ---
