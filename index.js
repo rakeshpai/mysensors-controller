@@ -29,9 +29,11 @@ module.exports.usingSerialGateway = function(port, baud) {
 	return new Controller(gateway);
 };
 
-module.exports.usingEthernetGateway = function(address, port) {
+module.exports.usingEthernetGateway = function(address, port, options) {
 	address = address || "192.168.178.66";
 	port = port || 5003;
+	options = options || {};
+	options.timeout = options.hasOwnProperty('timeout') ? options.timeout : 60000;
 
 	var gateway = require("net").Socket();
 
@@ -39,14 +41,21 @@ module.exports.usingEthernetGateway = function(address, port) {
 		console.log("Trying to connect...");
 		gateway.connect(port, address);
 		gateway.setEncoding("ascii");
+		gateway.setTimeout(options.timeout);
 	}
 
 	gateway.on("connect", function() {
-		console.log("Connected to ethernet gatway at", address + ":" + port);
+		console.log("Connected to ethernet gateway at", address + ":" + port);
 	});
 
 	gateway.on("error", function() {
 		console.log("Connection error");
+		setTimeout(connect, 1000);
+	});
+
+	gateway.on("timeout", function() {
+		console.log("Timeout");
+		gateway.end();
 		setTimeout(connect, 1000);
 	});
 
