@@ -109,7 +109,7 @@ Controller.prototype._sendTime = function(destination, sensor) {
 };
 
 Controller.prototype._issueNewId = function() {
-	var newId = Math.max.apply(Math, _.dot("id", this.nodes)) + 1;
+	var newId = Math.max.apply(Math, this.nodes.map(_.dot("id"))) + 1;
 
 	if(newId > 255) return this._log("Couldn't issue a new ID. I've run out of IDs.");
 
@@ -117,7 +117,7 @@ Controller.prototype._issueNewId = function() {
 		destination: broadcastAddress,
 		sensor: fullNodeId,
 		command: enums.commands.internal,
-		type: enums.internal.time,
+		type: enums.internal.idResponse,
 		payload: newId
 	});
 };
